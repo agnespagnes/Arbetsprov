@@ -3,6 +3,7 @@ var gulp = require('gulp'),
 	minifyCSS = require('gulp-minify-css');
 	livereload = require('gulp-livereload'),
 	uglify = require('gulp-uglify'),
+  jshint = require('gulp-jshint'),
 	concat = require('gulp-concat');
  
 gulp.task('styles', function () {
@@ -17,7 +18,8 @@ gulp.task('styles', function () {
 }); 
 
 gulp.task('scripts', function() {
-  return gulp.src(['src/js/main.js'])
+  return gulp.src(['src/js/app/search.js', 'src/js/app/main.js'])
+    .pipe(jshint())
   	.pipe(uglify())
     .pipe(concat('compressed.min.js'))
     .pipe(gulp.dest('dist/js'));

@@ -1,0 +1,31 @@
+/* ==|====================
+   Module/Form
+   ======================= */
+ul
+  padding: 0
+  margin: 0
+
+li 
+  list-style-type: none
+
+ul.search-suggestions
+  @include border-radius(5px)
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  margin: 0 1em
+  li
+    padding: 0.5em
+    background-color: #fff
+    border-bottom: 1px solid $lightgray
+    color: $darkgray
+    &:hover
+      background-color: lighten($lightgray, 20%)
+      color: darken($darkgray, 20%)
+      cursor: pointer
+
+ul.search-results
+  &:not(:empty)
+    padding: 1em 0
+  background-color: #163D6B

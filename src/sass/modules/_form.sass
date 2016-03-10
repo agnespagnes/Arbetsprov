@@ -1,4 +1,18 @@
 /* ==|====================
    Module/Form
    ======================= */
+form
+  margin: 0 1em
 
+input[type='text']
+  background: url(#{$img-path}/search.svg) no-repeat 1em center $darkgray
+  border: 0 none
+  width: 100%
+  padding: 1em 1em 1em 3em
+  font-size: 1em
+  color: #fff
+  @include border-radius(5px)
+  @include input-placeholder
+    color: $lightgray
+  &:focus
+    background-color: lighten($darkgray, 10%)

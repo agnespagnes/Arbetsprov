@@ -19,11 +19,26 @@
 
         <div class="wrapper">
         	<header>
-        		<img src="UI/assets/logo.svg">
+        		<img src="UI/assets/logo.svg" alt="Searq">
         	</header>
-        	<p>Hello world! This is HTML5 Boilerplate.</p>
+
+            <form id="search-form" action="" method="">
+                <input type="text" placeholder="Search for a song...">
+            </form>
+
+            <div class="results-container">
+                <ul class="search-suggestions"></ul>
+                <ul class="search-results">
+                    <li>text</li>
+                    <li>test</li>
+                    <li>text</li>
+                </ul>
+            </div>
+        	
         </div>
         
+        <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.1.min.js"><\/script>')</script>
         <script type="text/javascript" src="dist/js/compressed.min.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

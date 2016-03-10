@@ -1,9 +1,11 @@
 /* ===========================
    Base
    =========================== */
+*
+  @include box-sizing(border-box)
 
 html, body
-  height: 100%
+  min-height: 100%
 
 body
   padding: 0
@@ -11,8 +13,5 @@ body
   font-family: Arial
   @include background-image(linear-gradient(rgb(6, 38, 80), rgb(60, 89, 170)))
 
-.wrapper
-  max-width: 750px
-  margin: 0 auto
-  padding: 0 1em
-
+p
+  color: #fff

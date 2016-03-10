@@ -1,0 +1,5 @@
+(function() {
+
+  SongSearch.init();
+
+})();
