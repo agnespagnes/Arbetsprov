@@ -1,9 +1,9 @@
 #Spotify API Showcase
 Search for song titles and save them in a list
 
-Developer instructions
-Run npm install to download dependencies
-Working files are in the src directory
+Developer instructions  
+Run npm install to download dependencies  
+Working files are in the src directory  
 
 
 Instructions
