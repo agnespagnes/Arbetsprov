@@ -15,17 +15,51 @@ ul.search-suggestions
   left: 0
   right: 0
   margin: 0 1em
+  z-index: 1
   li
     padding: 0.5em
     background-color: #fff
-    border-bottom: 1px solid $lightgray
-    color: $darkgray
+    border-bottom: 1px solid $light-gray
+    color: $dark-gray
+    &:first-child,
     &:hover
-      background-color: lighten($lightgray, 20%)
-      color: darken($darkgray, 20%)
+      background-color: lighten($light-gray, 10%)
+      color: darken($dark-gray, 20%)
       cursor: pointer
 
 ul.search-results
+  background-color: $list-blue
   &:not(:empty)
     padding: 1em 0
-  background-color: #163D6B
+  li 
+    position: relative
+    padding: 1em
+    color: #fff
+    @include text-shadow(darken($list-blue, 20%) 1px 1px 0)
+    &:hover
+      background-color: $list-highlight-blue
+
+.track-title
+  padding-right: 1em
+  display: inline-block
+  min-width: 200px
+
+.track-date-added
+  font-style: small-caps
+  font-size: 0.8em
+  white-space: nowrap
+  padding-right: 3em
+
+.track-remove
+  position: absolute
+  right: 0
+  top: 0
+  bottom: 0
+  padding: 1em
+  background-color: $list-delete-red
+  cursor: pointer
+  display: none
+  .search-results li:hover &
+    display: block
+
+  

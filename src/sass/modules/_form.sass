@@ -5,7 +5,7 @@ form
   margin: 0 1em
 
 input[type='text']
-  background: url(#{$img-path}/search.svg) no-repeat 1em center $darkgray
+  background: url(#{$img-path}/search.svg) no-repeat 1em center $dark-gray
   border: 0 none
   width: 100%
   padding: 1em 1em 1em 3em
@@ -13,6 +13,6 @@ input[type='text']
   color: #fff
   @include border-radius(5px)
   @include input-placeholder
-    color: $lightgray
+    color: $light-gray
   &:focus
-    background-color: lighten($darkgray, 10%)
+    background-color: lighten($dark-gray, 10%)

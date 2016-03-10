@@ -11,6 +11,14 @@ SongSearch.init = function () {
             SongSearch.clearSuggestions();
         }
     });
+
+    $('#search-form').submit(function(){
+        var top_suggestion = $('.search-suggestions li:first').text();
+        SongSearch.pickSuggestion(top_suggestion);
+        $('#search-form input').blur();
+        SongSearch.clearSuggestions();
+        return false;
+    });
 }
 
 SongSearch.getSongs = function (querystring) {
@@ -32,20 +40,32 @@ SongSearch.getSongs = function (querystring) {
 
 SongSearch.showSuggestions = function(track){
 	$('.search-suggestions').append('<li>' + track.name + '</li>');
-	//$('.search-suggestions').fadeIn();
 	$('.search-suggestions li').unbind().click(function(){
-		SongSearch.printSongData($(this).text());
-		SongSearch.clearSuggestions();
+		SongSearch.pickSuggestion($(this).text());
 	});
 }
 
 SongSearch.clearSuggestions = function(){
-	//$('.search-suggestions').fadeOut();
-	$('.search-suggestions').empty();
+    $('.search-suggestions').empty();
+}
+
+SongSearch.pickSuggestion = function(track){
+    $('#search-form input').val(track);
+    SongSearch.printSongData(track);
+    SongSearch.clearSuggestions();
 }
 
 SongSearch.printSongData = function(track){
-	var date = new Date ();
-	$('.search-results').append('<li>' + track + ' ' + date + '</li>');
+	var date = new Date();
+    var year_month_day = date.toISOString().slice(0,10);
+    var hours = date.getUTCHours();
+    var minutes = date.getUTCMinutes();
+	$('.search-results').append('<li><span class="track-title">' + track + '</span><span class="track-date-added">' + year_month_day + ' ' + hours + ':' + minutes + '</span><span class="track-remove"><i class="fa fa-times"></i></span></li>');
+    $('.track-remove').unbind().click(function(){
+        SongSearch.removeSongData($(this));    
+    })
 }
 
+SongSearch.removeSongData = function(clicked_row){
+    clicked_row.parents('li').remove();
+}
